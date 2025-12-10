@@ -4,7 +4,8 @@ export default function Document() {
   return (
     <Html>
       <Head>
-        <link rel="icon" href="/favicon.ico" />
+        {/* Favicon actualizado para forzar que se cargue en todos los dominios */}
+        <link rel="icon" href="/favicon.ico?v=2" />
       </Head>
       <body>
         <Main />
@@ -13,4 +14,4 @@ export default function Document() {
     </Html>
   )
 }
- 
+
