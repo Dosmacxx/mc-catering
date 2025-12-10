@@ -51,8 +51,7 @@ h1, h2, h3 {
 .hero-section {
     height: 85vh;
     /* RUTA DE TU FOTO DE PORTADA CORREGIDA */
-    background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('/image_9a6f9e.jpg'); 
-    background-size: cover;
+background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('/19db037d-99a1-43e2-8b01-1051c962529d.jpg');    background-size: cover;
     background-position: center;
     display: flex;
     align-items: center;
