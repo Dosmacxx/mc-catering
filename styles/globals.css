@@ -1,7 +1,208 @@
-body { margin: 0; font-family: Arial, sans-serif; background: #f5f5f5; }
-.container { max-width: 900px; margin: auto; padding: 20px; }
-.header { text-align: center; padding: 40px 0; }
-.btn { background: #000; color: #fff; padding: 10px 20px; border-radius: 6px; text-decoration: none; display: inline-block; margin-top: 10px; }
-.services ul li { margin-bottom: 8px; }
-.form { display: flex; flex-direction: column; gap: 10px; }
-.form input, .form textarea { padding: 10px; border: 1px solid #ccc; border-radius: 6px; }
+/* VARIABLES GLOBALES */
+:root {
+    --color-dorado: #C9B059;       /* Color de acento */
+    --color-dorado-hover: #b09640;
+    --color-negro: #1a1a1a;
+    --color-blanco: #ffffff;
+    --color-fondo-claro: #f7f7f7;
+}
+
+/* RESET Y FUENTES */
+body {
+    margin: 0;
+    font-family: 'Lato', sans-serif;
+    color: var(--color-negro);
+    line-height: 1.6;
+}
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--color-negro);
+}
+
+/* 🌟 NAVEGACIÓN 🌟 */
+.navbar {
+    position: absolute; 
+    width: 100%;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    color: var(--color-blanco);
+    background: rgba(0, 0, 0, 0.4);
+}
+.navbar .logo {
+    font-weight: bold;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+}
+.navbar .menu a {
+    color: var(--color-blanco);
+    text-decoration: none;
+    margin-left: 25px;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+.navbar .menu a:hover {
+    color: var(--color-dorado);
+}
+
+/* 🥇 SECCIÓN HERO 🥇 */
+.hero-section {
+    height: 85vh;
+    /* RUTA DE TU FOTO DE PORTADA CORREGIDA */
+    background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('/image_9a6f9e.jpg'); 
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--color-blanco);
+}
+.hero-content h1 {
+    font-size: 3.5rem;
+    color: var(--color-blanco);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    font-style: italic;
+}
+
+/* BOTÓN DORADO (CTA principal) */
+.btn-dorado {
+    background-color: var(--color-dorado);
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 2px;
+    transition: background-color 0.3s;
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+}
+.btn-dorado:hover {
+    background-color: var(--color-dorado-hover);
+}
+
+/* 🛠️ SECCIÓN DE SERVICIOS 🛠️ */
+.servicios-section {
+    padding: 60px 5%;
+    text-align: center;
+    background-color: var(--color-fondo-claro); 
+}
+.servicios-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+}
+.servicios-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap: 30px;
+    margin-bottom: 40px;
+}
+.servicio-card {
+    background-color: var(--color-blanco);
+    padding: 30px;
+    border-radius: 5px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border-top: 5px solid var(--color-dorado);
+}
+.servicio-card:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+.icon-dorado {
+    font-size: 3rem;
+    color: var(--color-dorado);
+    display: block;
+    margin-bottom: 15px;
+}
+.servicio-card h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+.servicio-card p {
+    color: #666;
+}
+
+/* 📸 SECCIÓN TRAYECTORIA 📸 */
+.trayectoria-section {
+    padding: 60px 5%;
+    text-align: center;
+    background-color: var(--color-blanco);
+}
+.trayectoria-section h2 {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+}
+.trayectoria-section p {
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+    font-style: italic;
+    color: #555;
+}
+.gallery-placeholder {
+    height: 300px;
+    background-color: var(--color-fondo-claro);
+    border: 1px dashed var(--color-dorado);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-dorado);
+    font-weight: bold;
+}
+
+/* 📝 SECCIÓN CONTACTO 📝 */
+.contacto-section {
+    padding: 60px 5%;
+    background-color: #eee; 
+}
+.contacto-card {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: var(--color-blanco);
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+.contacto-card h2 {
+    margin-top: 0;
+}
+.contacto-card input[type="text"], 
+.contacto-card input[type="email"], 
+.contacto-card textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; 
+}
+
+/* BOTÓN WHATSAPP FLOTANTE */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25d366; 
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 24px;
+    box-shadow: 2px 2px 3px #999;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
