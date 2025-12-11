@@ -1,17 +1,24 @@
-import { Html, Head, Main, NextScript } from 'next/document'
+import { Html, Head, Main, NextScript } from "next/document";
 
 export default function Document() {
   return (
-    <Html>
+    <Html lang="es">
       <Head>
-        {/* Favicon actualizado para forzar que se cargue en todos los dominios */}
-        <link rel="icon" href="/favicon.ico?v=2" />
+        {/* FAVICON */}
+        <link rel="icon" href="/favicon.ico" />
+
+        {/* SEO opcional */}
+        <meta
+          name="description"
+          content="MC Catering - Viandas corporativas y servicios gastronómicos"
+        />
+        <meta name="theme-color" content="#7a0000" />
       </Head>
+
       <body>
         <Main />
         <NextScript />
       </body>
     </Html>
-  )
+  );
 }
-
