@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 
 export default function Home() {
   const imagenes = [
-    "/actualidad.jpg",
-    "/actual.jpg",
+    "/eventos/actualidad.jpg",
+    "/eventos/actual.jpg",
   ];
 
   const [index, setIndex] = useState(0);
