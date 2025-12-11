@@ -56,7 +56,7 @@ export default function Home() {
           src="/logo.png"
           alt="MC Catering"
           style={{
-            height: "80px",
+            height: "130px", // AUMENTADO
             width: "auto",
             filter: "drop-shadow(0 3px 5px rgba(0,0,0,0.6))",
           }}
@@ -84,7 +84,7 @@ export default function Home() {
           src="/logo.png"
           alt="MC Catering"
           style={{
-            width: "90px",
+            width: "150px",  // AUMENTADO
             marginBottom: "20px",
           }}
         />
