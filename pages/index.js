@@ -2,9 +2,8 @@ import { useEffect, useState } from "react";
 
 export default function Home() {
   const imagenes = [
-    "/eventos/actual.jpg",
-    "/eventos/actuaalidad.jpg",
-   
+    "/actualidad.jpg",
+    "/actual.jpg",
   ];
 
   const [index, setIndex] = useState(0);
@@ -31,8 +30,6 @@ export default function Home() {
         alignItems: "center",
         justifyContent: "center",
         position: "relative",
-        paddingLeft: "5vw",
-        paddingRight: "5vw",
       }}
     >
       {/* LOGO ARRIBA IZQUIERDA */}
@@ -48,7 +45,7 @@ export default function Home() {
           src="/logo.png"
           alt="MC Catering"
           style={{
-            height: "130px", // AUMENTADO
+            height: "100px",
             width: "auto",
             filter: "drop-shadow(0 3px 5px rgba(0,0,0,0.6))",
           }}
@@ -76,7 +73,7 @@ export default function Home() {
           src="/logo.png"
           alt="MC Catering"
           style={{
-            width: "150px",  // AUMENTADO
+            width: "120px",
             marginBottom: "20px",
           }}
         />
