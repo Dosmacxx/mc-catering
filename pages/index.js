@@ -93,11 +93,11 @@ const Home = () => {
                 </div>
             </section>
 
-            {/* 💬 BOTÓN FLOTANTE DE WHATSAPP (AQUÍ DEBES PEGAR TU ENLACE) */}
-            <a href="URL-A-TU-WHATSAPP" className="whatsapp-float" target="_blank">
-                <span style={{ fontSize: '30px' }}>💬</span> 
-            </a>
-
+          <div class="contact-float">
+    <a href="https://wa.me/+5491141687448?text=Hola,%20me%20interesa%20un%20presupuesto" target="_blank">
+        <i class="fab fa-whatsapp"></i> 
+    </a>
+</div>
         </>
     );
 };
