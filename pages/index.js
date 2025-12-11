@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 export default function Home() {
   const imagenes = [
-    "/eventos/actua.jpg",
+    "/eventos/actual.jpg",
     "/eventos/actuaalidad.jpg",
    
   ];
