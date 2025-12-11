@@ -37,12 +37,13 @@ export default function Home() {
         transition: "background-image 1s ease-in-out",
         display: "flex",
         alignItems: "center",
+        justifyContent: "center",
+        position: "relative",
         paddingLeft: "5vw",
         paddingRight: "5vw",
-        position: "relative",
       }}
     >
-      {/* LOGO */}
+      {/* LOGO ARRIBA IZQUIERDA */}
       <header
         style={{
           position: "absolute",
@@ -62,21 +63,76 @@ export default function Home() {
         />
       </header>
 
-      {/* TEXTO PRINCIPAL */}
-      <h1
+      {/* CUADRADO CENTRADO */}
+      <div
         style={{
-          fontSize: "clamp(2rem, 6vw, 4rem)",
-          color: "white",
-          fontWeight: "bold",
-          textShadow: "0px 5px 15px rgba(0,0,0,0.9)",
-          zIndex: 10,
-          marginLeft: "20px",
+          position: "absolute",
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%, -50%)",
+          background: "rgba(255, 255, 255, 0.92)",
+          borderRadius: "20px",
+          padding: "50px 40px",
+          maxWidth: "700px",
+          width: "90%",
+          textAlign: "center",
+          boxShadow: "0px 10px 35px rgba(0,0,0,0.4)",
+          zIndex: 30,
         }}
       >
-        MC CATERING
-      </h1>
+        <img
+          src="/22ab25c1-d71c-4fe5-bc02-54f5f53c3eb2-removebg-preview.png"
+          alt="MC Catering"
+          style={{
+            width: "90px",
+            marginBottom: "20px",
+          }}
+        />
 
-      {/* BOTÓN WHATSAPP */}
+        <h2
+          style={{
+            fontSize: "clamp(1.8rem, 4vw, 3rem)",
+            color: "#7a0000",
+            marginBottom: "15px",
+            fontWeight: "600",
+          }}
+        >
+          Viandas Corporativas<br />y Servicios Gastronómicos
+        </h2>
+
+        <div
+          style={{
+            width: "60px",
+            height: "4px",
+            background: "#7a0000",
+            margin: "0 auto 25px auto",
+            borderRadius: "4px",
+          }}
+        />
+
+        <a
+          href="https://wa.me/5491141687448"
+          target="_blank"
+          style={{
+            background: "#7a0000",
+            color: "white",
+            padding: "15px 30px",
+            borderRadius: "10px",
+            textDecoration: "none",
+            fontSize: "20px",
+            fontWeight: "500",
+            display: "inline-block",
+            boxShadow: "0px 4px 15px rgba(0,0,0,0.3)",
+            transition: "0.3s",
+          }}
+          onMouseEnter={(e) => (e.target.style.background = "#5b0000")}
+          onMouseLeave={(e) => (e.target.style.background = "#7a0000")}
+        >
+          Contactate con nosotros
+        </a>
+      </div>
+
+      {/* BOTÓN WHATSAPP FLOTANTE */}
       <a
         href="https://wa.me/5491141687448"
         target="_blank"
@@ -103,4 +159,3 @@ export default function Home() {
     </div>
   );
 }
-
