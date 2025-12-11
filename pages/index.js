@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 export default function Home() {
-  const images = [
+  const imagenes = [
     "/eventos/actual2.jpg",
     "/eventos/actual3.jpg",
     "/eventos/evento1.jpg",
@@ -15,22 +15,30 @@ export default function Home() {
     "/eventos/evento10.jpg",
   ];
 
-  const [currentImage, setCurrentImage] = useState(0);
+  const [index, setIndex] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentImage((prev) => (prev + 1) % images.length);
-    }, 3500);
+      setIndex((prev) => (prev + 1) % imagenes.length);
+    }, 5000);
 
     return () => clearInterval(interval);
-  }, [images.length]);
+  }, []);
 
   return (
     <div
       style={{
-        width: "100vw",
         height: "100vh",
+        width: "100%",
         overflow: "hidden",
+        backgroundImage: `url(${imagenes[index]})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        transition: "background-image 1s ease-in-out",
+        display: "flex",
+        alignItems: "center",
+        paddingLeft: "5vw",
+        paddingRight: "5vw",
         position: "relative",
       }}
     >
@@ -47,62 +55,34 @@ export default function Home() {
           src="/22ab25c1-d71c-4fe5-bc02-54f5f53c3eb2-removebg-preview.png"
           alt="MC Catering"
           style={{
-            height: "70px",
+            height: "80px",
             width: "auto",
-            filter: "drop-shadow(0 3px 5px rgba(0,0,0,0.5))",
+            filter: "drop-shadow(0 3px 5px rgba(0,0,0,0.6))",
           }}
         />
       </header>
 
-      {/* SLIDESHOW */}
-      <div
+      {/* TEXTO PRINCIPAL */}
+      <h1
         style={{
-          width: "100%",
-          height: "100%",
-          position: "relative",
-        }}
-      >
-        <img
-          src={images[currentImage]}
-          alt="Background"
-          style={{
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            width: "55%", // AJUSTÁ ESTE VALOR SI QUERÉS MÁS GRANDE O MÁS CHICO
-            height: "auto",
-            transform: "translate(-50%, -50%)",
-            objectFit: "contain",
-            opacity: 0.9,
-            transition: "opacity 0.8s ease",
-          }}
-        />
-      </div>
-
-      {/* TEXTO */}
-      <div
-        style={{
-          position: "absolute",
-          bottom: "15%",
-          width: "100%",
-          textAlign: "center",
+          fontSize: "clamp(2rem, 6vw, 4rem)",
           color: "white",
-          textShadow: "0px 0px 10px rgba(0,0,0,0.9)",
+          fontWeight: "bold",
+          textShadow: "0px 5px 15px rgba(0,0,0,0.9)",
+          zIndex: 10,
+          marginLeft: "20px",
         }}
       >
-        <h1 style={{ fontSize: "48px", margin: 0 }}>MC CATERING</h1>
-        <p style={{ fontSize: "22px", marginTop: "10px" }}>
-          Servicios gastronómicos para eventos sociales y corporativos
-        </p>
-      </div>
+        MC CATERING
+      </h1>
 
-      {/* BOTÓN DE WHATSAPP */}
+      {/* BOTÓN WHATSAPP */}
       <a
         href="https://wa.me/5491141687448"
         target="_blank"
         rel="noopener noreferrer"
         style={{
-          position: "fixed",
+          position: "absolute",
           bottom: "25px",
           right: "25px",
           zIndex: 1000,
@@ -115,7 +95,7 @@ export default function Home() {
             width: "70px",
             height: "70px",
             borderRadius: "50%",
-            boxShadow: "0px 4px 12px rgba(0,0,0,0.3)",
+            boxShadow: "0px 4px 12px rgba(0,0,0,0.4)",
             cursor: "pointer",
           }}
         />
