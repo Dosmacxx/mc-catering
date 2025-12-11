@@ -24,7 +24,7 @@ const Home = () => {
             <header className="hero-section">
                 <div className="hero-content">
                     <h1>EXPERIENCIAS GOURMET <br /> PARA MOMENTOS ÚNICOS</h1>
-                    <p>Maître · Camareros · Alta Cocina · Logística Integral</p>
+                    <p>Meître · Camareros · Alta Cocina · Logística Integral</p>
                     <a href="#contacto" className="btn-dorado">SOLICITAR PRESUPUESTO</a>
                 </div>
             </header>
