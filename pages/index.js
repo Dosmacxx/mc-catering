@@ -30,25 +30,26 @@ export default function Home() {
   return (
     <div
       style={{
+        width: "100vw",
         height: "100vh",
-        width: "100%",
         overflow: "hidden",
         backgroundImage: `url(${imagenes[index]})`,
         backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
         transition: "background-image 1s ease-in-out",
         display: "flex",
         alignItems: "center",
+        justifyContent: "flex-start",
         paddingLeft: "5vw",
-        paddingRight: "5vw",
       }}
     >
       <h1
         style={{
-          fontSize: "clamp(2rem, 6vw, 4rem)",
+          fontSize: "clamp(1.8rem, 5vw, 4rem)",
           color: "white",
-          fontWeight: "bold",
-          textShadow: "0 3px 10px rgba(0,0,0,0.8)",
+          fontWeight: "900",
+          textShadow: "0px 3px 12px rgba(0,0,0,0.8)",
         }}
       >
         MC CATERING
@@ -56,3 +57,4 @@ export default function Home() {
     </div>
   );
 }
+
