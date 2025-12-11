@@ -53,7 +53,7 @@ export default function Home() {
         }}
       >
         <img
-          src="/22ab25c1-d71c-4fe5-bc02-54f5f53c3eb2-removebg-preview.png"
+          src="/logo.png"
           alt="MC Catering"
           style={{
             height: "80px",
@@ -81,7 +81,7 @@ export default function Home() {
         }}
       >
         <img
-          src="/22ab25c1-d71c-4fe5-bc02-54f5f53c3eb2-removebg-preview.png"
+          src="/logo.png"
           alt="MC Catering"
           style={{
             width: "90px",
