@@ -2,17 +2,9 @@ import { useEffect, useState } from "react";
 
 export default function Home() {
   const imagenes = [
-    "/eventos/actual2.jpg",
-    "/eventos/actual3.jpg",
-    "/eventos/evento1.jpg",
-    "/eventos/evento2.jpg",
-    "/eventos/evento3.jpg",
-    "/eventos/evento5.jpg",
-    "/eventos/evento6.jpg",
-    "/eventos/evento7.jpg",
-    "/eventos/evento8.jpg",
-    "/eventos/evento9.jpg",
-    "/eventos/evento10.jpg",
+    "/eventos/actua.jpg",
+    "/eventos/actuaalidad.jpg",
+   
   ];
 
   const [index, setIndex] = useState(0);
