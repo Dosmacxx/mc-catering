@@ -8,6 +8,9 @@ export default function Home() {
 
   const [index, setIndex] = useState(0);
 
+  const isMobile =
+    typeof window !== "undefined" && window.innerWidth < 768;
+
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prev) => (prev + 1) % imagenes.length);
@@ -52,13 +55,16 @@ export default function Home() {
         />
       </header>
 
-      {/* CUADRADO CENTRADO */}
+      {/* CUADRADO CENTRADO (MISMO DISEÑO / ESCALADO EN MOBILE) */}
       <div
         style={{
           position: "absolute",
           top: "50%",
           left: "50%",
-          transform: "translate(-50%, -50%)",
+          transform: isMobile
+            ? "translate(-50%, -50%) scale(0.85)"
+            : "translate(-50%, -50%)",
+          transformOrigin: "center",
           background: "rgba(255, 255, 255, 0.92)",
           borderRadius: "20px",
           padding: "50px 40px",
@@ -122,32 +128,6 @@ export default function Home() {
           Contactate con nosotros
         </a>
       </div>
-
-      {/* BOTÓN WHATSAPP FLOTANTE */}
-      <a
-        href="https://wa.me/5491141687448"
-        target="_blank"
-        rel="noopener noreferrer"
-        style={{
-          position: "absolute",
-          bottom: "25px",
-          right: "25px",
-          zIndex: 1000,
-        }}
-      >
-        <img
-          src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
-          alt="WhatsApp"
-          style={{
-            width: "70px",
-            height: "70px",
-            borderRadius: "50%",
-            boxShadow: "0px 4px 12px rgba(0,0,0,0.4)",
-            cursor: "pointer",
-          }}
-        />
-      </a>
     </div>
   );
 }
-
