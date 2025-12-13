@@ -20,125 +20,124 @@ export default function Home() {
   }, []);
 
   return (
-    <>
-      {/* HERO */}
-      <div
+    <div
+      style={{
+        height: "100vh",
+        width: "100%",
+        overflow: "hidden",
+        backgroundImage: `url(${imagenes[index]})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        transition: "background-image 1s ease-in-out",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        position: "relative",
+      }}
+    >
+      {/* LOGO ARRIBA IZQUIERDA (DOBLE DE GRANDE) */}
+      <header
         style={{
-          height: "100vh",
-          width: "100%",
-          overflow: "hidden",
-          backgroundImage: `url(${imagenes[index]})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          transition: "background-image 1s ease-in-out",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          position: "relative",
+          position: "absolute",
+          top: 20,
+          left: 20,
+          zIndex: 50,
         }}
       >
-        {/* LOGO ARRIBA IZQUIERDA (X2) */}
-        <header
+        <img
+          src="/mC_cATERING-removebg-preview.png"
+          alt="MC Catering"
           style={{
-            position: "absolute",
-            top: 20,
-            left: 20,
-            zIndex: 20,
+            height: "200px", // ⬅️ doble
+            width: "auto",
+            filter: "drop-shadow(0 3px 5px rgba(0,0,0,0.6))",
+          }}
+        />
+      </header>
+
+      {/* CUADRADO CENTRADO (MISMO TAMAÑO QUE LA PRIMER FOTO) */}
+      <div
+        style={{
+          position: "absolute",
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%, -50%)",
+          background: "rgba(255, 255, 255, 0.92)",
+          borderRadius: "20px",
+
+          // 👇 CLAVE: desktop igual, mobile menos alto
+          padding: isMobile ? "30px 40px" : "50px 40px",
+
+          maxWidth: "700px",
+          width: "90%",
+          textAlign: "center",
+          boxShadow: "0px 10px 35px rgba(0,0,0,0.4)",
+          zIndex: 30,
+        }}
+      >
+        {/* LOGO CENTRAL (DOBLE DE GRANDE, NO ROMPE EL CUADRADO) */}
+        <img
+          src="/mC_cATERING-removebg-preview.png"
+          alt="MC Catering"
+          style={{
+            width: "240px", // ⬅️ doble
+            marginBottom: "20px",
+          }}
+        />
+
+        <h2
+          style={{
+            fontSize: "clamp(1.8rem, 4vw, 3rem)",
+            color: "#7a0000",
+            marginBottom: "15px",
+            fontWeight: "600",
           }}
         >
-          <img
-            src="/mC_cATERING-removebg-preview.png"
-            alt="MC Catering"
-            style={{
-              height: "200px", // 🔥 DOBLE
-              width: "auto",
-              filter: "drop-shadow(0 4px 8px rgba(0,0,0,0.6))",
-            }}
-          />
-        </header>
+          Viandas Corporativas
+          <br />
+          y Servicios Gastronómicos
+        </h2>
 
-        {/* CUADRADO CENTRADO */}
         <div
           style={{
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            background: "rgba(255, 255, 255, 0.92)",
-            borderRadius: "20px",
-            padding: isMobile ? "28px 40px" : "50px 40px", // 🔽 MENOS ALTO EN MOBILE
-            maxWidth: "700px",
-            width: "90%",
-            textAlign: "center",
-            boxShadow: "0px 10px 35px rgba(0,0,0,0.4)",
-            zIndex: 30,
+            width: "60px",
+            height: "4px",
+            background: "#7a0000",
+            margin: "0 auto 25px auto",
+            borderRadius: "4px",
           }}
+        />
+
+        <a
+          href="https://wa.me/5491141687448"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            background: "#7a0000",
+            color: "white",
+            padding: "15px 30px",
+            borderRadius: "10px",
+            textDecoration: "none",
+            fontSize: "20px",
+            fontWeight: "500",
+            display: "inline-block",
+            boxShadow: "0px 4px 15px rgba(0,0,0,0.3)",
+            transition: "0.3s",
+          }}
+          onMouseEnter={(e) => (e.target.style.background = "#5b0000")}
+          onMouseLeave={(e) => (e.target.style.background = "#7a0000")}
         >
-          {/* LOGO CENTRAL (X2) */}
-          <img
-            src="/mC_cATERING-removebg-preview.png"
-            alt="MC Catering"
-            style={{
-              width: isMobile ? "240px" : "360px", // 🔥 DOBLE
-              marginBottom: "20px",
-              filter: "drop-shadow(0 4px 10px rgba(0,0,0,0.25))",
-            }}
-          />
-
-          <h2
-            style={{
-              fontSize: "clamp(1.6rem, 4vw, 3rem)",
-              color: "#7a0000",
-              marginBottom: "15px",
-              fontWeight: "600",
-            }}
-          >
-            Viandas Corporativas
-            <br />
-            y Servicios Gastronómicos
-          </h2>
-
-          <div
-            style={{
-              width: "60px",
-              height: "4px",
-              background: "#7a0000",
-              margin: "0 auto 25px auto",
-              borderRadius: "4px",
-            }}
-          />
-
-          <a
-            href="https://wa.me/5491141687448"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              background: "#7a0000",
-              color: "white",
-              padding: "15px 30px",
-              borderRadius: "10px",
-              textDecoration: "none",
-              fontSize: "20px",
-              fontWeight: "500",
-              display: "inline-block",
-              boxShadow: "0px 4px 15px rgba(0,0,0,0.3)",
-              transition: "0.3s",
-            }}
-            onMouseEnter={(e) => (e.target.style.background = "#5b0000")}
-            onMouseLeave={(e) => (e.target.style.background = "#7a0000")}
-          >
-            Contactate con nosotros
-          </a>
-        </div>
+          Contactate con nosotros
+        </a>
       </div>
 
-      {/* BOTÓN WHATSAPP (FIJO – SIEMPRE VISIBLE) */}
+      {/* WHATSAPP FLOTANTE (VISIBLE SIEMPRE) */}
       <a
         href="https://wa.me/5491141687448"
         target="_blank"
         rel="noopener noreferrer"
         style={{
-          position: "fixed", // 🔥 CLAVE
+          position: "fixed",
           bottom: "25px",
           right: "25px",
           zIndex: 9999,
@@ -156,6 +155,6 @@ export default function Home() {
           }}
         />
       </a>
-    </>
+    </div>
   );
 }
