@@ -1,179 +1,221 @@
 import { useEffect, useState } from "react";
 
 export default function Home() {
-  const imagenes = [
-    "/eventos/actual.jpg",
-    "/eventos/actualidad.jpg",
-  ];
-
+  const imagenes = ["/eventos/actual.jpg", "/eventos/actualidad.jpg"];
   const [index, setIndex] = useState(0);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prev) => (prev + 1) % imagenes.length);
     }, 5000);
-
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <div
-      style={{
-        height: "100vh",
-        width: "100%",
-        overflow: "hidden",
-        backgroundImage: `url(${imagenes[index]})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        transition: "background-image 1s ease-in-out",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        position: "relative",
-      }}
-    >
-      {/* LOGO ARRIBA IZQUIERDA */}
+    <>
+      {/* ================= HEADER ================= */}
       <header
         style={{
-          position: "absolute",
-          top: 20,
-          left: 20,
-          zIndex: 20,
+          position: "fixed",
+          top: 0,
+          width: "100%",
+          zIndex: 1000,
+          background: "rgba(255,255,255,0.9)",
+          backdropFilter: "blur(10px)",
+          boxShadow: "0 2px 10px rgba(0,0,0,0.1)",
         }}
       >
-        <img
-          src="/mC_cATERING-removebg-preview.png"
-          alt="MC Catering"
-          style={{
-            height: "140px",
-            width: "auto",
-            filter: "drop-shadow(0 3px 5px rgba(0,0,0,0.6))",
-          }}
-        />
-      </header>
-
-      {/* CUADRADO CENTRADO */}
-      <div
-        style={{
-          position: "absolute",
-          top: "50%",
-          left: "50%",
-          transform: "translate(-50%, -50%)",
-          background: "rgba(255, 255, 255, 0.92)",
-          borderRadius: "20px",
-          padding: "50px 40px",
-          maxWidth: "700px",
-          width: "90%",
-          textAlign: "center",
-          boxShadow: "0px 10px 35px rgba(0,0,0,0.4)",
-          zIndex: 30,
-        }}
-      >
-        {/* LOGO CENTRO */}
-        <img
-          src="/mC_cATERING-removebg-preview.png"
-          alt="MC Catering"
-          style={{
-            width: "200px",
-            marginBottom: "20px",
-          }}
-        />
-
-        <h2
-          style={{
-            fontSize: "clamp(1.8rem, 4vw, 3rem)",
-            color: "#7a0000",
-            marginBottom: "15px",
-            fontWeight: "600",
-          }}
-        >
-          Viandas Corporativas
-          <br />
-          y Servicios Gastronómicos
-        </h2>
-
         <div
           style={{
-            width: "60px",
-            height: "4px",
-            background: "#7a0000",
-            margin: "0 auto 25px auto",
-            borderRadius: "4px",
+            maxWidth: "1200px",
+            margin: "0 auto",
+            padding: "15px 20px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
           }}
-        />
-
-        <a
-          href="https://wa.me/5491141687448"
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{
-            background: "#7a0000",
-            color: "white",
-            padding: "15px 30px",
-            borderRadius: "10px",
-            textDecoration: "none",
-            fontSize: "20px",
-            fontWeight: "500",
-            display: "inline-block",
-            boxShadow: "0px 4px 15px rgba(0,0,0,0.3)",
-            transition: "0.3s",
-          }}
-          onMouseEnter={(e) => (e.target.style.background = "#5b0000")}
-          onMouseLeave={(e) => (e.target.style.background = "#7a0000")}
         >
-          Contactate con nosotros
-        </a>
-      </div>
+          {/* LOGO */}
+          <img
+            src="/mC_cATERING-removebg-preview.png"
+            alt="MC Catering"
+            style={{ height: "65px" }}
+          />
 
-      {/* BOTONES FLOTANTES */}
-      <div
+          {/* MENU DESKTOP */}
+          <nav className="menu-desktop">
+            {["Eventos", "Clientes", "Cotizacion"].map((item) => (
+              <a
+                key={item}
+                href={`#${item.toLowerCase()}`}
+                style={{
+                  marginLeft: "30px",
+                  textDecoration: "none",
+                  color: "#7a0000",
+                  fontWeight: "600",
+                  fontSize: "16px",
+                }}
+              >
+                {item}
+              </a>
+            ))}
+          </nav>
+
+          {/* MENU MOBILE */}
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="menu-btn"
+            style={{
+              fontSize: "30px",
+              background: "none",
+              border: "none",
+              cursor: "pointer",
+              display: "none",
+            }}
+          >
+            ☰
+          </button>
+        </div>
+
+        {/* MENU MOBILE DESPLEGADO */}
+        {menuOpen && (
+          <div
+            className="menu-mobile"
+            style={{
+              background: "white",
+              padding: "20px",
+              display: "flex",
+              flexDirection: "column",
+              gap: "20px",
+            }}
+          >
+            {["Eventos", "Clientes", "Cotizacion"].map((item) => (
+              <a
+                key={item}
+                href={`#${item.toLowerCase()}`}
+                onClick={() => setMenuOpen(false)}
+                style={{
+                  textDecoration: "none",
+                  color: "#7a0000",
+                  fontSize: "18px",
+                  fontWeight: "600",
+                }}
+              >
+                {item}
+              </a>
+            ))}
+          </div>
+        )}
+      </header>
+
+      {/* ================= HERO ================= */}
+      <section
         style={{
-          position: "absolute",
-          bottom: "25px",
-          right: "25px",
+          height: "100vh",
+          backgroundImage: `url(${imagenes[index]})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
           display: "flex",
-          flexDirection: "column",
-          gap: "12px",
-          zIndex: 1000,
+          alignItems: "center",
+          justifyContent: "center",
+          paddingTop: "120px",
         }}
       >
-        {/* INSTAGRAM */}
-        <a
-          href="https://www.instagram.com/mcatering__/"
-          target="_blank"
-          rel="noopener noreferrer"
+        <div
+          style={{
+            background: "rgba(255,255,255,0.92)",
+            borderRadius: "20px",
+            padding: "50px 40px",
+            maxWidth: "700px",
+            width: "90%",
+            textAlign: "center",
+            boxShadow: "0 10px 35px rgba(0,0,0,0.4)",
+          }}
         >
           <img
-            src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
-            alt="Instagram"
-            style={{
-              width: "55px",
-              height: "55px",
-              borderRadius: "50%",
-              boxShadow: "0px 4px 12px rgba(0,0,0,0.4)",
-            }}
+            src="/mC_cATERING-removebg-preview.png"
+            alt="MC Catering"
+            style={{ width: "200px", marginBottom: "20px" }}
           />
-        </a>
 
-        {/* WHATSAPP */}
-        <a
-          href="https://wa.me/5491141687448"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
-            alt="WhatsApp"
+          <h2 style={{ color: "#7a0000" }}>
+            Viandas Corporativas
+            <br />
+            y Servicios Gastronómicos
+          </h2>
+
+          <a
+            href="https://wa.me/5491141687448"
+            target="_blank"
+            rel="noopener noreferrer"
             style={{
-              width: "60px",
-              height: "60px",
-              borderRadius: "50%",
-              boxShadow: "0px 4px 12px rgba(0,0,0,0.4)",
+              marginTop: "25px",
+              display: "inline-block",
+              background: "#7a0000",
+              color: "white",
+              padding: "15px 30px",
+              borderRadius: "10px",
+              textDecoration: "none",
             }}
-          />
-        </a>
-      </div>
-    </div>
+          >
+            Solicitar Cotización
+          </a>
+        </div>
+      </section>
+
+      {/* ================= EVENTOS ================= */}
+      <section id="eventos" style={{ padding: "100px 20px" }}>
+        <h2 style={{ textAlign: "center", color: "#7a0000" }}>
+          Eventos
+        </h2>
+        <p style={{ textAlign: "center" }}>
+          Catering para eventos sociales y corporativos.
+        </p>
+      </section>
+
+      {/* ================= CLIENTES ================= */}
+      <section
+        id="clientes"
+        style={{ padding: "100px 20px", background: "#f7f7f7" }}
+      >
+        <h2 style={{ textAlign: "center", color: "#7a0000" }}>
+          Clientes & Experiencias
+        </h2>
+        <p style={{ textAlign: "center" }}>
+          Empresas, figuras públicas y eventos destacados.
+        </p>
+        {/* ACA DESPUÉS VAN LAS FOTOS CON FAMOSOS */}
+      </section>
+
+      {/* ================= COTIZACION ================= */}
+      <section id="cotizacion" style={{ padding: "100px 20px" }}>
+        <h2 style={{ textAlign: "center", color: "#7a0000" }}>
+          Cotización
+        </h2>
+        <p style={{ textAlign: "center" }}>
+          Pedinos tu presupuesto personalizado.
+        </p>
+      </section>
+
+      {/* ================= RESPONSIVE ================= */}
+      <style>
+        {`
+          @media (max-width: 768px) {
+            .menu-desktop {
+              display: none;
+            }
+            .menu-btn {
+              display: block !important;
+            }
+          }
+          @media (min-width: 769px) {
+            .menu-mobile {
+              display: none;
+            }
+          }
+        `}
+      </style>
+    </>
   );
 }
-
