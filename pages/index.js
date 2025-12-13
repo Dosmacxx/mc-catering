@@ -24,33 +24,40 @@ export default function Home() {
           position: "fixed",
           top: 0,
           width: "100%",
+          height: "110px", // 🔒 ALTURA FIJA
           zIndex: 1000,
           background: "rgba(255,255,255,0.9)",
           backdropFilter: "blur(10px)",
           boxShadow: "0 2px 10px rgba(0,0,0,0.1)",
         }}
       >
+        {/* LOGO HEADER (ABSOLUTO - NO ROMPE) */}
+        <img
+          src="/mC_cATERING-removebg-preview.png"
+          alt="MC Catering"
+          style={{
+            position: "absolute",
+            left: "20px",
+            top: "50%",
+            transform: "translateY(-50%)",
+            height: "250px", // 🔥 LOGO GRANDE
+            width: "auto",
+            pointerEvents: "none",
+          }}
+        />
+
+        {/* CONTENEDOR MENU */}
         <div
           style={{
             maxWidth: "1200px",
             margin: "0 auto",
-            padding: "15px 20px",
+            height: "100%",
+            padding: "0 20px",
             display: "flex",
             alignItems: "center",
-            justifyContent: "space-between",
+            justifyContent: "flex-end",
           }}
         >
-          {/* LOGO HEADER */}
-          <img
-            src="/mC_cATERING-removebg-preview.png"
-            alt="MC Catering"
-            style={{
-              height: "250px",   // 🔥 SOLO CAMBIA EL LOGO
-              width: "auto",
-              objectFit: "contain",
-            }}
-          />
-
           {/* MENU DESKTOP */}
           <nav className="menu-desktop">
             {["Eventos", "Clientes", "Cotizacion"].map((item) => (
@@ -91,11 +98,15 @@ export default function Home() {
           <div
             className="menu-mobile"
             style={{
+              position: "absolute",
+              top: "110px",
+              width: "100%",
               background: "white",
               padding: "20px",
               display: "flex",
               flexDirection: "column",
               gap: "20px",
+              boxShadow: "0 10px 20px rgba(0,0,0,0.15)",
             }}
           >
             {["Eventos", "Clientes", "Cotizacion"].map((item) => (
@@ -127,7 +138,7 @@ export default function Home() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          paddingTop: "120px",
+          paddingTop: "110px", // igual al header
         }}
       >
         <div
@@ -141,15 +152,15 @@ export default function Home() {
             boxShadow: "0 10px 35px rgba(0,0,0,0.4)",
           }}
         >
-          {/* LOGO CENTRO */}
+          {/* LOGO CENTRO (NO ROMPE CONTENEDOR) */}
           <img
             src="/mC_cATERING-removebg-preview.png"
             alt="MC Catering"
             style={{
-              width: "250px",  // 🔥 SOLO CAMBIA EL LOGO
+              width: "250px", // 🔥 GRANDE
               height: "auto",
-              marginBottom: "20px",
-              objectFit: "contain",
+              display: "block",
+              margin: "0 auto 20px",
             }}
           />
 
@@ -205,7 +216,7 @@ export default function Home() {
               display: block !important;
             }
             header img {
-              height: 160px !important; /* solo en celular */
+              height: 170px !important; /* solo reduce el logo */
             }
           }
           @media (min-width: 769px) {
