@@ -45,14 +45,14 @@ export default function Home() {
           src="/mC_cATERING-removebg-preview.png"
           alt="MC Catering"
           style={{
-            width: "clamp(120px, 14vw, 180px)",
-            height: "auto",
-            filter: "drop-shadow(0 3px 6px rgba(0,0,0,0.55))",
+            height: "100px",
+            width: "auto",
+            filter: "drop-shadow(0 3px 5px rgba(0,0,0,0.6))",
           }}
         />
       </header>
 
-      {/* CUADRADO CENTRADO (ESPACIADO ORIGINAL) */}
+      {/* CUADRADO CENTRADO */}
       <div
         style={{
           position: "absolute",
@@ -61,22 +61,20 @@ export default function Home() {
           transform: "translate(-50%, -50%)",
           background: "rgba(255, 255, 255, 0.92)",
           borderRadius: "20px",
-          padding: "50px 40px",   // ✅ ORIGINAL
-          maxWidth: "700px",      // ✅ ORIGINAL
+          padding: "50px 40px",
+          maxWidth: "700px",
           width: "90%",
           textAlign: "center",
           boxShadow: "0px 10px 35px rgba(0,0,0,0.4)",
           zIndex: 30,
         }}
       >
-        {/* LOGO CENTRAL (MÁS GRANDE, SIN TOCAR ESPACIOS) */}
         <img
           src="/mC_cATERING-removebg-preview.png"
           alt="MC Catering"
           style={{
-            width: "clamp(240px, 30vw, 360px)",
-            marginBottom: "20px", // ✅ ORIGINAL
-            filter: "drop-shadow(0 4px 10px rgba(0,0,0,0.22))",
+            width: "120px",
+            marginBottom: "20px",
           }}
         />
 
@@ -84,7 +82,7 @@ export default function Home() {
           style={{
             fontSize: "clamp(1.8rem, 4vw, 3rem)",
             color: "#7a0000",
-            marginBottom: "15px", // ✅ ORIGINAL
+            marginBottom: "15px",
             fontWeight: "600",
           }}
         >
@@ -98,7 +96,7 @@ export default function Home() {
             width: "60px",
             height: "4px",
             background: "#7a0000",
-            margin: "0 auto 25px auto", // ✅ ORIGINAL
+            margin: "0 auto 25px auto",
             borderRadius: "4px",
           }}
         />
@@ -125,7 +123,7 @@ export default function Home() {
         </a>
       </div>
 
-      {/* BOTÓN WHATSAPP */}
+      {/* BOTÓN WHATSAPP FLOTANTE */}
       <a
         href="https://wa.me/5491141687448"
         target="_blank"
@@ -145,9 +143,11 @@ export default function Home() {
             height: "70px",
             borderRadius: "50%",
             boxShadow: "0px 4px 12px rgba(0,0,0,0.4)",
+            cursor: "pointer",
           }}
         />
       </a>
     </div>
   );
 }
+
