@@ -42,7 +42,7 @@ export default function Home() {
         }}
       >
         <img
-          src="/logo.png"
+          src="/mC_cATERING-removebg-preview.png"
           alt="MC Catering"
           style={{
             width: "clamp(90px, 12vw, 140px)",
@@ -69,9 +69,9 @@ export default function Home() {
           zIndex: 30,
         }}
       >
-        {/* LOGO CENTRAL PRO */}
+        {/* LOGO CENTRAL */}
         <img
-          src="/logo.png"
+          src="/mC_cATERING-removebg-preview.png"
           alt="MC Catering"
           style={{
             width: "clamp(180px, 25vw, 300px)",
