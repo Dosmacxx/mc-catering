@@ -2,26 +2,17 @@ import { useEffect, useState } from "react";
 
 export default function Home() {
   const imagenes = [
-    "/eventos/fac39c73-7da3-4944-ad59-d96d6022fbdd.jpg",
-    "/eventos/e8773ad5-8767-4ad5-aafd-7d5b61dc755f.jpg",
-    "/eventos/actualidad.jpg",
     "/eventos/actual.jpg",
+    "/eventos/actualidad.jpg",
   ];
 
   const [index, setIndex] = useState(0);
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth <= 768);
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
-  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prev) => (prev + 1) % imagenes.length);
     }, 5000);
+
     return () => clearInterval(interval);
   }, []);
 
@@ -33,8 +24,11 @@ export default function Home() {
         overflow: "hidden",
         backgroundImage: `url(${imagenes[index]})`,
         backgroundSize: "cover",
-        backgroundPosition: isMobile ? "50% 20%" : "50% 30%",
+        backgroundPosition: "center",
         transition: "background-image 1s ease-in-out",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
         position: "relative",
       }}
     >
@@ -51,8 +45,9 @@ export default function Home() {
           src="/mC_cATERING-removebg-preview.png"
           alt="MC Catering"
           style={{
-            height: isMobile ? "90px" : "160px",
-            filter: "drop-shadow(0 3px 6px rgba(0,0,0,0.6))",
+            height: "140px",
+            width: "auto",
+            filter: "drop-shadow(0 3px 5px rgba(0,0,0,0.6))",
           }}
         />
       </header>
@@ -64,13 +59,13 @@ export default function Home() {
           top: "50%",
           left: "50%",
           transform: "translate(-50%, -50%)",
-          background: "rgba(255,255,255,0.92)",
+          background: "rgba(255, 255, 255, 0.92)",
           borderRadius: "20px",
           padding: "50px 40px",
           maxWidth: "700px",
           width: "90%",
           textAlign: "center",
-          boxShadow: "0 10px 35px rgba(0,0,0,0.4)",
+          boxShadow: "0px 10px 35px rgba(0,0,0,0.4)",
           zIndex: 30,
         }}
       >
@@ -79,7 +74,7 @@ export default function Home() {
           src="/mC_cATERING-removebg-preview.png"
           alt="MC Catering"
           style={{
-            width: isMobile ? "140px" : "220px",
+            width: "200px",
             marginBottom: "20px",
           }}
         />
@@ -102,7 +97,7 @@ export default function Home() {
             width: "60px",
             height: "4px",
             background: "#7a0000",
-            margin: "0 auto 25px",
+            margin: "0 auto 25px auto",
             borderRadius: "4px",
           }}
         />
@@ -118,9 +113,13 @@ export default function Home() {
             borderRadius: "10px",
             textDecoration: "none",
             fontSize: "20px",
+            fontWeight: "500",
             display: "inline-block",
-            boxShadow: "0 4px 15px rgba(0,0,0,0.3)",
+            boxShadow: "0px 4px 15px rgba(0,0,0,0.3)",
+            transition: "0.3s",
           }}
+          onMouseEnter={(e) => (e.target.style.background = "#5b0000")}
+          onMouseLeave={(e) => (e.target.style.background = "#7a0000")}
         >
           Contactate con nosotros
         </a>
@@ -130,8 +129,8 @@ export default function Home() {
       <div
         style={{
           position: "absolute",
-          bottom: 25,
-          right: 25,
+          bottom: "25px",
+          right: "25px",
           display: "flex",
           flexDirection: "column",
           gap: "12px",
@@ -148,10 +147,10 @@ export default function Home() {
             src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
             alt="Instagram"
             style={{
-              width: isMobile ? "48px" : "60px",
-              height: isMobile ? "48px" : "60px",
+              width: "55px",
+              height: "55px",
               borderRadius: "50%",
-              boxShadow: "0 4px 12px rgba(0,0,0,0.4)",
+              boxShadow: "0px 4px 12px rgba(0,0,0,0.4)",
             }}
           />
         </a>
@@ -166,10 +165,10 @@ export default function Home() {
             src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
             alt="WhatsApp"
             style={{
-              width: isMobile ? "52px" : "65px",
-              height: isMobile ? "52px" : "65px",
+              width: "60px",
+              height: "60px",
               borderRadius: "50%",
-              boxShadow: "0 4px 12px rgba(0,0,0,0.4)",
+              boxShadow: "0px 4px 12px rgba(0,0,0,0.4)",
             }}
           />
         </a>
@@ -177,3 +176,4 @@ export default function Home() {
     </div>
   );
 }
+
