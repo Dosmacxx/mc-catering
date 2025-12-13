@@ -45,9 +45,9 @@ export default function Home() {
           src="/logo.png"
           alt="MC Catering"
           style={{
-            height: "100px",
-            width: "auto",
-            filter: "drop-shadow(0 3px 5px rgba(0,0,0,0.6))",
+            width: "clamp(90px, 12vw, 140px)",
+            height: "auto",
+            filter: "drop-shadow(0 3px 6px rgba(0,0,0,0.6))",
           }}
         />
       </header>
@@ -69,12 +69,14 @@ export default function Home() {
           zIndex: 30,
         }}
       >
+        {/* LOGO CENTRAL PRO */}
         <img
           src="/logo.png"
           alt="MC Catering"
           style={{
-            width: "120px",
-            marginBottom: "20px",
+            width: "clamp(180px, 25vw, 300px)",
+            marginBottom: "25px",
+            filter: "drop-shadow(0 4px 10px rgba(0,0,0,0.25))",
           }}
         />
 
@@ -86,7 +88,9 @@ export default function Home() {
             fontWeight: "600",
           }}
         >
-          Viandas Corporativas<br />y Servicios Gastronómicos
+          Viandas Corporativas
+          <br />
+          y Servicios Gastronómicos
         </h2>
 
         <div
