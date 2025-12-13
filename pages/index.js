@@ -4,6 +4,14 @@ export default function Home() {
   const imagenes = [
     "/eventos/actualidad.jpg",
     "/eventos/actual.jpg",
+
+    // NUEVAS FOTOS
+    "/eventos/80bef401-3d40-4e13-81a5-07c7bf429ead.jpg",
+    "/eventos/7750b39a-fb80-4afe-91c8-58f44345576b.jpg",
+    "/eventos/9581dd34-4ea9-48ad-bcdd-aad9b81de220.jpg",
+    "/eventos/cc637288-2631-4837-878a-67bfcef3e48a.jpg",
+    "/eventos/d4e9086d-c7a8-49ad-bfff-58f4323b5091.jpg",
+    "/eventos/e8773ad5-8767-4ad5-aafd-7d5b61dc755f.jpg",
   ];
 
   const [index, setIndex] = useState(0);
@@ -17,7 +25,7 @@ export default function Home() {
     }, 5000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [imagenes.length]);
 
   return (
     <div
@@ -55,10 +63,10 @@ export default function Home() {
         />
       </header>
 
-      {/* CUADRADO */}
+      {/* CUADRADO BLANCO */}
       <div
         style={{
-          position: "relative", // 👈 CLAVE
+          position: "relative",
           background: "rgba(255, 255, 255, 0.92)",
           borderRadius: "20px",
           padding: isMobile ? "40px 40px 45px" : "60px 40px 50px",
@@ -69,7 +77,7 @@ export default function Home() {
           zIndex: 30,
         }}
       >
-        {/* LOGO CENTRAL ABSOLUTO (NO EMPUJA EL CUADRADO) */}
+        {/* LOGO CENTRAL */}
         <img
           src="/mC_cATERING-removebg-preview.png"
           alt="MC Catering"
@@ -78,12 +86,11 @@ export default function Home() {
             top: isMobile ? "-55px" : "-75px",
             left: "50%",
             transform: "translateX(-50%)",
-            width: isMobile ? "180px" : "280px", // 🔥 grande sin romper
+            width: isMobile ? "180px" : "280px",
             zIndex: 40,
           }}
         />
 
-        {/* ESPACIADOR CONTROLADO */}
         <div style={{ height: isMobile ? "90px" : "120px" }} />
 
         <h2
@@ -123,39 +130,37 @@ export default function Home() {
             fontWeight: "500",
             display: "inline-block",
             boxShadow: "0px 4px 15px rgba(0,0,0,0.3)",
-            transition: "0.3s",
           }}
         >
           Contactate con nosotros
         </a>
       </div>
 
-{/* INSTAGRAM FLOTANTE */}
-<a
-  href="https://www.instagram.com/mcatering__/"
-  target="_blank"
-  rel="noopener noreferrer"
-  style={{
-    position: "fixed",
-    bottom: "110px", // ⬅️ arriba del WhatsApp
-    right: "25px",
-    zIndex: 9999,
-  }}
->
-  <img
-    src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
-    alt="Instagram"
-    style={{
-      width: "70px",
-      height: "70px",
-      borderRadius: "50%",
-      boxShadow: "0px 4px 12px rgba(0,0,0,0.4)",
-      cursor: "pointer",
-      background: "white",
-      padding: "6px",
-    }}
-  />
-</a>
+      {/* INSTAGRAM */}
+      <a
+        href="https://www.instagram.com/mcatering__/"
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{
+          position: "fixed",
+          bottom: "110px",
+          right: "25px",
+          zIndex: 9999,
+        }}
+      >
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
+          alt="Instagram"
+          style={{
+            width: isMobile ? "58px" : "70px",
+            height: isMobile ? "58px" : "70px",
+            borderRadius: "50%",
+            boxShadow: "0px 4px 12px rgba(0,0,0,0.4)",
+            background: "white",
+            padding: "6px",
+          }}
+        />
+      </a>
 
       {/* WHATSAPP */}
       <a
@@ -173,8 +178,8 @@ export default function Home() {
           src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
           alt="WhatsApp"
           style={{
-            width: "70px",
-            height: "70px",
+            width: isMobile ? "58px" : "70px",
+            height: isMobile ? "58px" : "70px",
             borderRadius: "50%",
             boxShadow: "0px 4px 12px rgba(0,0,0,0.4)",
           }}
