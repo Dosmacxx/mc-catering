@@ -130,6 +130,33 @@ export default function Home() {
         </a>
       </div>
 
+{/* INSTAGRAM FLOTANTE */}
+<a
+  href="https://www.instagram.com/mcatering__/"
+  target="_blank"
+  rel="noopener noreferrer"
+  style={{
+    position: "fixed",
+    bottom: "110px", // ⬅️ arriba del WhatsApp
+    right: "25px",
+    zIndex: 9999,
+  }}
+>
+  <img
+    src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
+    alt="Instagram"
+    style={{
+      width: "70px",
+      height: "70px",
+      borderRadius: "50%",
+      boxShadow: "0px 4px 12px rgba(0,0,0,0.4)",
+      cursor: "pointer",
+      background: "white",
+      padding: "6px",
+    }}
+  />
+</a>
+
       {/* WHATSAPP */}
       <a
         href="https://wa.me/5491141687448"
