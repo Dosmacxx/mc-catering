@@ -1,7 +1,11 @@
 import { useEffect, useState } from "react";
 
 export default function Home() {
-  const imagenes = ["/eventos/actual.jpg", "/eventos/actualidad.jpg"];
+  const imagenes = [
+    "/eventos/actual.jpg",
+    "/eventos/actualidad.jpg",
+  ];
+
   const [index, setIndex] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -36,11 +40,15 @@ export default function Home() {
             justifyContent: "space-between",
           }}
         >
-          {/* LOGO */}
+          {/* LOGO HEADER */}
           <img
             src="/mC_cATERING-removebg-preview.png"
             alt="MC Catering"
-            style={{ height: "65px" }}
+            style={{
+              height: "250px",   // 🔥 SOLO CAMBIA EL LOGO
+              width: "auto",
+              objectFit: "contain",
+            }}
           />
 
           {/* MENU DESKTOP */}
@@ -78,7 +86,7 @@ export default function Home() {
           </button>
         </div>
 
-        {/* MENU MOBILE DESPLEGADO */}
+        {/* MENU MOBILE */}
         {menuOpen && (
           <div
             className="menu-mobile"
@@ -133,10 +141,16 @@ export default function Home() {
             boxShadow: "0 10px 35px rgba(0,0,0,0.4)",
           }}
         >
+          {/* LOGO CENTRO */}
           <img
             src="/mC_cATERING-removebg-preview.png"
             alt="MC Catering"
-            style={{ width: "200px", marginBottom: "20px" }}
+            style={{
+              width: "250px",  // 🔥 SOLO CAMBIA EL LOGO
+              height: "auto",
+              marginBottom: "20px",
+              objectFit: "contain",
+            }}
           />
 
           <h2 style={{ color: "#7a0000" }}>
@@ -164,38 +178,20 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ================= EVENTOS ================= */}
+      {/* ================= SECCIONES ================= */}
       <section id="eventos" style={{ padding: "100px 20px" }}>
-        <h2 style={{ textAlign: "center", color: "#7a0000" }}>
-          Eventos
-        </h2>
-        <p style={{ textAlign: "center" }}>
-          Catering para eventos sociales y corporativos.
-        </p>
+        <h2 style={{ textAlign: "center", color: "#7a0000" }}>Eventos</h2>
       </section>
 
-      {/* ================= CLIENTES ================= */}
       <section
         id="clientes"
         style={{ padding: "100px 20px", background: "#f7f7f7" }}
       >
-        <h2 style={{ textAlign: "center", color: "#7a0000" }}>
-          Clientes & Experiencias
-        </h2>
-        <p style={{ textAlign: "center" }}>
-          Empresas, figuras públicas y eventos destacados.
-        </p>
-        {/* ACA DESPUÉS VAN LAS FOTOS CON FAMOSOS */}
+        <h2 style={{ textAlign: "center", color: "#7a0000" }}>Clientes</h2>
       </section>
 
-      {/* ================= COTIZACION ================= */}
       <section id="cotizacion" style={{ padding: "100px 20px" }}>
-        <h2 style={{ textAlign: "center", color: "#7a0000" }}>
-          Cotización
-        </h2>
-        <p style={{ textAlign: "center" }}>
-          Pedinos tu presupuesto personalizado.
-        </p>
+        <h2 style={{ textAlign: "center", color: "#7a0000" }}>Cotización</h2>
       </section>
 
       {/* ================= RESPONSIVE ================= */}
@@ -207,6 +203,9 @@ export default function Home() {
             }
             .menu-btn {
               display: block !important;
+            }
+            header img {
+              height: 160px !important; /* solo en celular */
             }
           }
           @media (min-width: 769px) {
