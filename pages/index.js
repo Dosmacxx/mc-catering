@@ -17,116 +17,119 @@ export default function Home() {
   }, []);
 
   return (
-    <>
+    <div
+      style={{
+        height: "100vh",
+        width: "100%",
+        overflow: "hidden",
+        backgroundImage: `url(${imagenes[index]})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        transition: "background-image 1s ease-in-out",
+        position: "relative",
+      }}
+    >
       {/* ================= HEADER ================= */}
       <header
         style={{
           position: "fixed",
           top: 0,
+          left: 0,
           width: "100%",
-          height: "110px", // 🔒 ALTURA FIJA
-          zIndex: 1000,
+          height: "110px",
           background: "rgba(255,255,255,0.9)",
           backdropFilter: "blur(10px)",
-          boxShadow: "0 2px 10px rgba(0,0,0,0.1)",
+          zIndex: 100,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          padding: "0 40px",
         }}
       >
-        {/* LOGO HEADER (ABSOLUTO - NO ROMPE) */}
+        {/* LOGO HEADER */}
         <img
           src="/mC_cATERING-removebg-preview.png"
           alt="MC Catering"
           style={{
+            height: "250px",
             position: "absolute",
             left: "20px",
-            top: "50%",
-            transform: "translateY(-50%)",
-            height: "250px", // 🔥 LOGO GRANDE
-            width: "auto",
+            top: "-85px",
             pointerEvents: "none",
           }}
         />
 
-        {/* CONTENEDOR MENU */}
-        <div
+        {/* MENU DESKTOP */}
+        <nav
           style={{
-            maxWidth: "1200px",
-            margin: "0 auto",
-            height: "100%",
-            padding: "0 20px",
+            marginLeft: "auto",
             display: "flex",
-            alignItems: "center",
-            justifyContent: "flex-end",
           }}
+          className="menu-desktop"
         >
-          {/* MENU DESKTOP */}
-          <nav className="menu-desktop">
-            {["Eventos", "Clientes", "Cotizacion"].map((item) => (
-              <a
-                key={item}
-                href={`#${item.toLowerCase()}`}
-                style={{
-                  marginLeft: "30px",
-                  textDecoration: "none",
-                  color: "#7a0000",
-                  fontWeight: "600",
-                  fontSize: "16px",
-                }}
-              >
-                {item}
-              </a>
-            ))}
-          </nav>
-
-          {/* MENU MOBILE */}
-          <button
-            onClick={() => setMenuOpen(!menuOpen)}
-            className="menu-btn"
-            style={{
-              fontSize: "30px",
-              background: "none",
-              border: "none",
-              cursor: "pointer",
-              display: "none",
-            }}
-          >
-            ☰
-          </button>
-        </div>
+          {["Eventos", "Clientes", "Cotización"].map((item) => (
+            <a
+              key={item}
+              href={`#${item.toLowerCase()}`}
+              style={{
+                marginLeft: "38px",
+                textDecoration: "none",
+                color: "#7a0000",
+                fontWeight: "700",
+                fontSize: "18px",
+                letterSpacing: "0.5px",
+              }}
+            >
+              {item}
+            </a>
+          ))}
+        </nav>
 
         {/* MENU MOBILE */}
-        {menuOpen && (
-          <div
-            className="menu-mobile"
-            style={{
-              position: "absolute",
-              top: "110px",
-              width: "100%",
-              background: "white",
-              padding: "20px",
-              display: "flex",
-              flexDirection: "column",
-              gap: "20px",
-              boxShadow: "0 10px 20px rgba(0,0,0,0.15)",
-            }}
-          >
-            {["Eventos", "Clientes", "Cotizacion"].map((item) => (
-              <a
-                key={item}
-                href={`#${item.toLowerCase()}`}
-                onClick={() => setMenuOpen(false)}
-                style={{
-                  textDecoration: "none",
-                  color: "#7a0000",
-                  fontSize: "18px",
-                  fontWeight: "600",
-                }}
-              >
-                {item}
-              </a>
-            ))}
-          </div>
-        )}
+        <div
+          onClick={() => setMenuOpen(!menuOpen)}
+          style={{
+            display: "none",
+            fontSize: "30px",
+            cursor: "pointer",
+          }}
+          className="menu-mobile"
+        >
+          ☰
+        </div>
       </header>
+
+      {/* MENU MOBILE DESPLEGABLE */}
+      {menuOpen && (
+        <div
+          style={{
+            position: "fixed",
+            top: "80px",
+            right: 0,
+            background: "white",
+            width: "220px",
+            boxShadow: "-4px 10px 20px rgba(0,0,0,0.2)",
+            zIndex: 200,
+          }}
+        >
+          {["Eventos", "Clientes", "Cotización"].map((item) => (
+            <a
+              key={item}
+              href={`#${item.toLowerCase()}`}
+              style={{
+                display: "block",
+                padding: "18px",
+                textDecoration: "none",
+                color: "#7a0000",
+                fontWeight: "700",
+                fontSize: "20px",
+              }}
+            >
+              {item}
+            </a>
+          ))}
+        </div>
+      )}
 
       {/* ================= HERO ================= */}
       <section
@@ -152,7 +155,7 @@ export default function Home() {
             boxShadow: "0 10px 35px rgba(0,0,0,0.4)",
           }}
         >
-          {/* LOGO CENTRO (NO ROMPE CONTENEDOR) */}
+          {/* LOGO CENTRO */}
           <img
             src="/mC_cATERING-removebg-preview.png"
             alt="MC Catering"
@@ -205,6 +208,55 @@ export default function Home() {
         <h2 style={{ textAlign: "center", color: "#7a0000" }}>Cotización</h2>
       </section>
 
+      {/* ================= LOGOS FLOTANTES ================= */}
+      {/* WHATSAPP */}
+      <a
+        href="https://wa.me/5491141687448"
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{
+          position: "fixed",
+          bottom: "25px",
+          right: "25px",
+          zIndex: 999,
+        }}
+      >
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+          alt="WhatsApp"
+          style={{
+            width: "65px",
+            height: "65px",
+            borderRadius: "50%",
+            boxShadow: "0px 4px 12px rgba(0,0,0,0.4)",
+          }}
+        />
+      </a>
+
+      {/* INSTAGRAM */}
+      <a
+        href="https://www.instagram.com/mcatering__/"
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{
+          position: "fixed",
+          bottom: "100px",
+          right: "25px",
+          zIndex: 999,
+        }}
+      >
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
+          alt="Instagram"
+          style={{
+            width: "65px",
+            height: "65px",
+            borderRadius: "50%",
+            boxShadow: "0px 4px 12px rgba(0,0,0,0.4)",
+          }}
+        />
+      </a>
+
       {/* ================= RESPONSIVE ================= */}
       <style>
         {`
@@ -226,6 +278,6 @@ export default function Home() {
           }
         `}
       </style>
-    </>
+    </div>
   );
 }
