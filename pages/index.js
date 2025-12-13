@@ -2,16 +2,10 @@ import { useEffect, useState } from "react";
 
 export default function Home() {
   const imagenes = [
+    "/eventos/fac39c73-7da3-4944-ad59-d96d6022fbdd.jpg",
+    "/eventos/e8773ad5-8767-4ad5-aafd-7d5b61dc755f.jpg",
     "/eventos/actualidad.jpg",
     "/eventos/actual.jpg",
-
-    // NUEVAS FOTOS
-    "/eventos/80bef401-3d40-4e13-81a5-07c7bf429ead.jpg",
-    "/eventos/7750b39a-fb80-4afe-91c8-58f44345576b.jpg",
-    "/eventos/9581dd34-4ea9-48ad-bcdd-aad9b81de220.jpg",
-    "/eventos/cc637288-2631-4837-878a-67bfcef3e48a.jpg",
-    "/eventos/d4e9086d-c7a8-49ad-bfff-58f4323b5091.jpg",
-    "/eventos/e8773ad5-8767-4ad5-aafd-7d5b61dc755f.jpg",
   ];
 
   const [index, setIndex] = useState(0);
@@ -22,7 +16,7 @@ export default function Home() {
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prev) => (prev + 1) % imagenes.length);
-    }, 5000);
+    }, 6000);
 
     return () => clearInterval(interval);
   }, [imagenes.length]);
@@ -35,7 +29,7 @@ export default function Home() {
         overflow: "hidden",
         backgroundImage: `url(${imagenes[index]})`,
         backgroundSize: "cover",
-        backgroundPosition: "center",
+        backgroundPosition: isMobile ? "50% 30%" : "center center",
         transition: "background-image 1s ease-in-out",
         display: "flex",
         alignItems: "center",
