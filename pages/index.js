@@ -16,16 +16,22 @@ export default function Home() {
     return () => clearInterval(interval);
   }, []);
 
+  const linkStyle = {
+    marginLeft: "38px",
+    textDecoration: "none",
+    color: "#7a0000",
+    fontWeight: "700",
+    fontSize: "20px",
+    letterSpacing: "0.5px",
+  };
+
   return (
     <div
       style={{
         minHeight: "100vh",
         width: "100%",
         overflowX: "hidden",
-        backgroundImage: `url(${imagenes[index]})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        transition: "background-image 1s ease-in-out",
+        position: "relative",
       }}
     >
       {/* ================= HEADER ================= */}
@@ -38,7 +44,7 @@ export default function Home() {
           height: "110px",
           background: "rgba(255,255,255,0.9)",
           backdropFilter: "blur(10px)",
-          zIndex: 100,
+          zIndex: 1000,
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
@@ -60,22 +66,9 @@ export default function Home() {
 
         {/* MENU DESKTOP */}
         <nav className="menu-desktop" style={{ marginLeft: "auto" }}>
-          {["Eventos", "Clientes", "Cotización"].map((item) => (
-            <a
-              key={item}
-              href={`#${item.toLowerCase()}`}
-              style={{
-                marginLeft: "38px",
-                textDecoration: "none",
-                color: "#7a0000",
-                fontWeight: "700",
-                fontSize: "20px",
-                letterSpacing: "0.5px",
-              }}
-            >
-              {item}
-            </a>
-          ))}
+          <a href="/eventos" style={linkStyle}>Eventos</a>
+          <a href="/clientes" style={linkStyle}>Clientes</a>
+          <a href="/cotizacion" style={linkStyle}>Cotización</a>
         </nav>
 
         {/* MENU MOBILE */}
@@ -102,26 +95,12 @@ export default function Home() {
             background: "white",
             width: "220px",
             boxShadow: "-4px 10px 20px rgba(0,0,0,0.2)",
-            zIndex: 200,
+            zIndex: 1500,
           }}
         >
-          {["Eventos", "Clientes", "Cotización"].map((item) => (
-            <a
-              key={item}
-              href={`#${item.toLowerCase()}`}
-              onClick={() => setMenuOpen(false)}
-              style={{
-                display: "block",
-                padding: "18px",
-                textDecoration: "none",
-                color: "#7a0000",
-                fontWeight: "700",
-                fontSize: "20px",
-              }}
-            >
-              {item}
-            </a>
-          ))}
+          <a href="/eventos" style={mobileLink}>Eventos</a>
+          <a href="/clientes" style={mobileLink}>Clientes</a>
+          <a href="/cotizacion" style={mobileLink}>Cotización</a>
         </div>
       )}
 
@@ -129,6 +108,10 @@ export default function Home() {
       <section
         style={{
           height: "100vh",
+          backgroundImage: `url(${imagenes[index]})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          transition: "background-image 1s ease-in-out",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
@@ -146,25 +129,30 @@ export default function Home() {
             boxShadow: "0 10px 35px rgba(0,0,0,0.4)",
           }}
         >
+          {/* LOGO CENTRO */}
           <img
             src="/mC_cATERING-removebg-preview.png"
             alt="MC Catering"
             style={{
               width: "250px",
+              height: "auto",
               marginBottom: "20px",
             }}
           />
 
-          <h2 style={{ color: "#7a0000" }}>
+          <h2
+            style={{
+              color: "#7a0000",
+              fontSize: "clamp(1.8rem, 4vw, 2.6rem)",
+            }}
+          >
             Viandas Corporativas
             <br />
             y Servicios Gastronómicos
           </h2>
 
           <a
-            href="https://wa.me/5491141687448"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/cotizacion"
             style={{
               marginTop: "25px",
               display: "inline-block",
@@ -173,6 +161,7 @@ export default function Home() {
               padding: "15px 30px",
               borderRadius: "10px",
               textDecoration: "none",
+              fontSize: "18px",
             }}
           >
             Solicitar Cotización
@@ -180,52 +169,79 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ================= SECCIONES ================= */}
-      <section id="eventos" style={{ padding: "120px 20px" }}>
-        <h2 style={{ textAlign: "center", color: "#7a0000" }}>Eventos</h2>
-      </section>
-
-      <section id="clientes" style={{ padding: "120px 20px", background: "#f7f7f7" }}>
-        <h2 style={{ textAlign: "center", color: "#7a0000" }}>Clientes</h2>
-      </section>
-
-      <section id="cotizacion" style={{ padding: "120px 20px" }}>
-        <h2 style={{ textAlign: "center", color: "#7a0000" }}>Cotización</h2>
-      </section>
-
-      {/* ================= BOTONES FLOTANTES ================= */}
+      {/* ================= LOGOS FLOTANTES ================= */}
+      {/* WHATSAPP */}
       <a
         href="https://wa.me/5491141687448"
         target="_blank"
         rel="noopener noreferrer"
-        style={{ position: "fixed", bottom: "25px", right: "25px", zIndex: 999 }}
+        style={{
+          position: "fixed",
+          bottom: "25px",
+          right: "25px",
+          zIndex: 2000,
+        }}
       >
         <img
           src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
-          style={{ width: "65px", height: "65px" }}
+          alt="WhatsApp"
+          style={{
+            width: "65px",
+            height: "65px",
+            borderRadius: "50%",
+            boxShadow: "0 4px 12px rgba(0,0,0,0.4)",
+          }}
         />
       </a>
 
+      {/* INSTAGRAM */}
       <a
         href="https://www.instagram.com/mcatering__/"
         target="_blank"
         rel="noopener noreferrer"
-        style={{ position: "fixed", bottom: "100px", right: "25px", zIndex: 999 }}
+        style={{
+          position: "fixed",
+          bottom: "105px",
+          right: "25px",
+          zIndex: 2000,
+        }}
       >
         <img
           src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
-          style={{ width: "65px", height: "65px" }}
+          alt="Instagram"
+          style={{
+            width: "65px",
+            height: "65px",
+            borderRadius: "50%",
+            boxShadow: "0 4px 12px rgba(0,0,0,0.4)",
+          }}
         />
       </a>
 
       {/* ================= RESPONSIVE ================= */}
       <style>{`
         @media (max-width: 768px) {
-          .menu-desktop { display: none; }
-          .menu-mobile { display: block !important; }
-          header img { height: 170px !important; }
+          .menu-desktop {
+            display: none;
+          }
+          .menu-mobile {
+            display: block;
+          }
+          header img {
+            height: 180px !important;
+            top: -55px !important;
+          }
         }
       `}</style>
     </div>
   );
 }
+
+const mobileLink = {
+  display: "block",
+  padding: "18px",
+  textDecoration: "none",
+  color: "#7a0000",
+  fontWeight: "700",
+  fontSize: "20px",
+};
