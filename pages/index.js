@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Head from "next/head";
 
 export default function Home() {
   const imagenes = [
@@ -16,24 +17,17 @@ export default function Home() {
     return () => clearInterval(interval);
   }, []);
 
-  const linkStyle = {
-    marginLeft: "38px",
-    textDecoration: "none",
-    color: "#7a0000",
-    fontWeight: "700",
-    fontSize: "20px",
-    letterSpacing: "0.5px",
-  };
-
   return (
-    <div
-      style={{
-        minHeight: "100vh",
-        width: "100%",
-        overflowX: "hidden",
-        position: "relative",
-      }}
-    >
+    <div style={{ minHeight: "100vh", overflowX: "hidden" }}>
+      {/* ================= SEO ================= */}
+      <Head>
+        <title>MC Catering | Viandas Corporativas y Eventos Empresariales</title>
+        <meta
+          name="description"
+          content="MC Catering ofrece viandas corporativas y catering para eventos empresariales y sociales. Servicio profesional y de calidad."
+        />
+      </Head>
+
       {/* ================= HEADER ================= */}
       <header
         style={{
@@ -71,14 +65,14 @@ export default function Home() {
           <a href="/cotizacion" style={linkStyle}>Cotización</a>
         </nav>
 
-        {/* MENU MOBILE */}
+        {/* MENU MOBILE ☰ */}
         <div
           className="menu-mobile"
           onClick={() => setMenuOpen(!menuOpen)}
           style={{
             fontSize: "32px",
             cursor: "pointer",
-            display: "none",
+            userSelect: "none",
           }}
         >
           ☰
@@ -135,21 +129,15 @@ export default function Home() {
             alt="MC Catering"
             style={{
               width: "250px",
-              height: "auto",
               marginBottom: "20px",
             }}
           />
 
-          <h2
-            style={{
-              color: "#7a0000",
-              fontSize: "clamp(1.8rem, 4vw, 2.6rem)",
-            }}
-          >
+          <h1 style={{ color: "#7a0000" }}>
             Viandas Corporativas
             <br />
             y Servicios Gastronómicos
-          </h2>
+          </h1>
 
           <a
             href="/cotizacion"
@@ -184,7 +172,7 @@ export default function Home() {
       >
         <img
           src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
-          alt="WhatsApp"
+          alt="WhatsApp MC Catering"
           style={{
             width: "65px",
             height: "65px",
@@ -208,7 +196,7 @@ export default function Home() {
       >
         <img
           src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
-          alt="Instagram"
+          alt="Instagram MC Catering"
           style={{
             width: "65px",
             height: "65px",
@@ -232,10 +220,24 @@ export default function Home() {
             top: -55px !important;
           }
         }
+
+        @media (min-width: 769px) {
+          .menu-mobile {
+            display: none;
+          }
+        }
       `}</style>
     </div>
   );
 }
+
+const linkStyle = {
+  marginLeft: "38px",
+  textDecoration: "none",
+  color: "#7a0000",
+  fontWeight: "700",
+  fontSize: "20px",
+};
 
 const mobileLink = {
   display: "block",
