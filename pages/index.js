@@ -19,14 +19,13 @@ export default function Home() {
   return (
     <div
       style={{
-        height: "100vh",
+        minHeight: "100vh",
         width: "100%",
-        overflow: "hidden",
+        overflowX: "hidden",
         backgroundImage: `url(${imagenes[index]})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         transition: "background-image 1s ease-in-out",
-        position: "relative",
       }}
     >
       {/* ================= HEADER ================= */}
@@ -60,13 +59,7 @@ export default function Home() {
         />
 
         {/* MENU DESKTOP */}
-        <nav
-          style={{
-            marginLeft: "auto",
-            display: "flex",
-          }}
-          className="menu-desktop"
-        >
+        <nav className="menu-desktop" style={{ marginLeft: "auto" }}>
           {["Eventos", "Clientes", "Cotización"].map((item) => (
             <a
               key={item}
@@ -76,7 +69,7 @@ export default function Home() {
                 textDecoration: "none",
                 color: "#7a0000",
                 fontWeight: "700",
-                fontSize: "18px",
+                fontSize: "20px",
                 letterSpacing: "0.5px",
               }}
             >
@@ -87,13 +80,13 @@ export default function Home() {
 
         {/* MENU MOBILE */}
         <div
+          className="menu-mobile"
           onClick={() => setMenuOpen(!menuOpen)}
           style={{
-            display: "none",
-            fontSize: "30px",
+            fontSize: "32px",
             cursor: "pointer",
+            display: "none",
           }}
-          className="menu-mobile"
         >
           ☰
         </div>
@@ -104,7 +97,7 @@ export default function Home() {
         <div
           style={{
             position: "fixed",
-            top: "80px",
+            top: "110px",
             right: 0,
             background: "white",
             width: "220px",
@@ -116,6 +109,7 @@ export default function Home() {
             <a
               key={item}
               href={`#${item.toLowerCase()}`}
+              onClick={() => setMenuOpen(false)}
               style={{
                 display: "block",
                 padding: "18px",
@@ -135,13 +129,10 @@ export default function Home() {
       <section
         style={{
           height: "100vh",
-          backgroundImage: `url(${imagenes[index]})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          paddingTop: "110px", // igual al header
+          paddingTop: "110px",
         }}
       >
         <div
@@ -155,15 +146,12 @@ export default function Home() {
             boxShadow: "0 10px 35px rgba(0,0,0,0.4)",
           }}
         >
-          {/* LOGO CENTRO */}
           <img
             src="/mC_cATERING-removebg-preview.png"
             alt="MC Catering"
             style={{
-              width: "250px", // 🔥 GRANDE
-              height: "auto",
-              display: "block",
-              margin: "0 auto 20px",
+              width: "250px",
+              marginBottom: "20px",
             }}
           />
 
@@ -193,91 +181,51 @@ export default function Home() {
       </section>
 
       {/* ================= SECCIONES ================= */}
-      <section id="eventos" style={{ padding: "100px 20px" }}>
+      <section id="eventos" style={{ padding: "120px 20px" }}>
         <h2 style={{ textAlign: "center", color: "#7a0000" }}>Eventos</h2>
       </section>
 
-      <section
-        id="clientes"
-        style={{ padding: "100px 20px", background: "#f7f7f7" }}
-      >
+      <section id="clientes" style={{ padding: "120px 20px", background: "#f7f7f7" }}>
         <h2 style={{ textAlign: "center", color: "#7a0000" }}>Clientes</h2>
       </section>
 
-      <section id="cotizacion" style={{ padding: "100px 20px" }}>
+      <section id="cotizacion" style={{ padding: "120px 20px" }}>
         <h2 style={{ textAlign: "center", color: "#7a0000" }}>Cotización</h2>
       </section>
 
-      {/* ================= LOGOS FLOTANTES ================= */}
-      {/* WHATSAPP */}
+      {/* ================= BOTONES FLOTANTES ================= */}
       <a
         href="https://wa.me/5491141687448"
         target="_blank"
         rel="noopener noreferrer"
-        style={{
-          position: "fixed",
-          bottom: "25px",
-          right: "25px",
-          zIndex: 999,
-        }}
+        style={{ position: "fixed", bottom: "25px", right: "25px", zIndex: 999 }}
       >
         <img
           src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
-          alt="WhatsApp"
-          style={{
-            width: "65px",
-            height: "65px",
-            borderRadius: "50%",
-            boxShadow: "0px 4px 12px rgba(0,0,0,0.4)",
-          }}
+          style={{ width: "65px", height: "65px" }}
         />
       </a>
 
-      {/* INSTAGRAM */}
       <a
         href="https://www.instagram.com/mcatering__/"
         target="_blank"
         rel="noopener noreferrer"
-        style={{
-          position: "fixed",
-          bottom: "100px",
-          right: "25px",
-          zIndex: 999,
-        }}
+        style={{ position: "fixed", bottom: "100px", right: "25px", zIndex: 999 }}
       >
         <img
           src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
-          alt="Instagram"
-          style={{
-            width: "65px",
-            height: "65px",
-            borderRadius: "50%",
-            boxShadow: "0px 4px 12px rgba(0,0,0,0.4)",
-          }}
+          style={{ width: "65px", height: "65px" }}
         />
       </a>
 
       {/* ================= RESPONSIVE ================= */}
-      <style>
-        {`
-          @media (max-width: 768px) {
-            .menu-desktop {
-              display: none;
-            }
-            .menu-btn {
-              display: block !important;
-            }
-            header img {
-              height: 170px !important; /* solo reduce el logo */
-            }
-          }
-          @media (min-width: 769px) {
-            .menu-mobile {
-              display: none;
-            }
-          }
-        `}
-      </style>
+      <style>{`
+        @media (max-width: 768px) {
+          .menu-desktop { display: none; }
+          .menu-mobile { display: block !important; }
+          header img { height: 170px !important; }
+        }
+      `}</style>
     </div>
   );
 }
